@@ -24,11 +24,20 @@ class AppDatabase {
   final DatabaseFactory _databaseFactory;
   final String? _dbPath;
   Database? _db;
+  Future<Database>? _openFuture;
 
   Future<Database> get database async {
-    if (_db != null) return _db!;
-    _db = await _open();
-    return _db!;
+    final existing = _db;
+    if (existing != null) return existing;
+
+    final pending = _openFuture;
+    if (pending != null) return pending;
+
+    _openFuture = _open();
+    final db = await _openFuture!;
+    _db = db;
+    _openFuture = null;
+    return db;
   }
 
   Future<Database> _open() async {
@@ -58,6 +67,7 @@ class AppDatabase {
       await db.close();
       _db = null;
     }
+    _openFuture = null;
   }
 
   // Habits
