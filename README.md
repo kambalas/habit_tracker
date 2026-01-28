@@ -1,16 +1,18 @@
 # habit_tracker
 
-A new Flutter project.
+## App purpose
+A fast, minimal habit tracker built for macOS-first. The core experience is: open the app, see today’s habits, and complete them with one tap.
 
-## Getting Started
+## MVP scope
+- Habit list (Today view)
+- One-tap check-off
+- Daily / weekly schedules
+- Inline streak display (derived)
+- Basic stats (derived, read-only)
 
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+## Non-goals (explicitly out of scope for MVP)
+- Gamification
+- Social features
+- Tags, colors, themes
+- Cloud sync
+- Authentication
